@@ -27,11 +27,11 @@
 
     <div class="container">
         
-      <form action="https://songrecapp.azurewebsites.net/api/SongRecTrigger" method="post" enctype="multipart/form-data">
-        <input type="file" name="file" />
+      <form id="myform" onsubmit="event.preventDefault(); handle(event);"  enctype="multipart/form-data">
+        <input type="file" name="file" id="file" />
         <input type="submit" value="Submit" />
      </form>
-     
+
     </div>
 
     <!-- Bootstrap core JavaScript
