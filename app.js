@@ -146,8 +146,8 @@ const APIController = (function() {
         console.log("tracksArray[0]: " + tracksArray[0]);
         
         let seedTracks = "";
-        for (let i = 0; i < tracksEndPoint.length; i++){
-            seedTracks += tracksEndPoint[i].id + "2C";
+        for (let i = 0; i < tracksArray.length; i++){
+            seedTracks += tracksArray[i].id + "2C";
         }
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
