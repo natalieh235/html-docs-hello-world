@@ -128,14 +128,14 @@ const APIController = (function() {
         return data;
     }
 
-    const _getRecommendations = async(token, tracksEndPoint, emotionData) => {
+    const _getRecommendations = async(token, trackEndPoint, emotionData) => {
         const limit = 1;
-        console.log('tracks end point: ' + tracksEndPoint);
-        const arrayTracks = await _getTrack(token, tracksEndPoint);
-        console.log('array tracks: ' + arrayTracks);
+        console.log('track end point: ' + trackEndPoint);
+        // const arrayTracks = await _getTrack(token, tracksEndPoint);
+        // console.log('array tracks: ' + arrayTracks);
         let seedTracks = "";
-        arrayTracks.forEach(el => seedTracks = seedTracks + el.id + "%2C");
-        seedTracks = seedTracks.substring(0, seedTracks.length-3);
+        // arrayTracks.forEach(el => seedTracks = seedTracks + el.id + "%2C");
+        // seedTracks = seedTracks.substring(0, seedTracks.length-3);
         
 
         const valence = emotionData.happiness + emotionData.surprise - 
@@ -324,10 +324,12 @@ const APPController = (function(UICtrl, APICtrl) {
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndpoint);
+        console.log('tracks[0]' + tracks[0]);
+        //const track = await APICtrl.getTrack(token, tracks[0].href);
         // create a track list item
-        const recommendedTrack = await APICtrl.getRecommendations(token, tracksEndpoint);
-        UICtrl.createTrackDetail(recommendedTrack.album.images[2].url, 
-            recommendedTrack.name, recommendedTrack.artists[0].name);
+        // const recommendedTrack = await APICtrl.getRecommendations(token, tracksEndpoint);
+        // UICtrl.createTrackDetail(recommendedTrack.album.images[2].url, 
+        //     recommendedTrack.name, recommendedTrack.artists[0].name);
         //tracks.forEach(el => UICtrl.createTrack(el.track.id, el.track.name, el.track.href))
         
     });
