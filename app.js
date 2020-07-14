@@ -135,7 +135,10 @@ const APIController = (function() {
         
         
         let seedTracks = "";
-        tracksEndPoint.forEach(el => seedTracks = seedTracks + el.id + "%2C");
+        for (let i = 0; i < tracksEndPoint.length; i++){
+            seedTracks += tracksEndPoint[i].id + "2C";
+        }
+        
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
         console.log(seedTracks);
         
