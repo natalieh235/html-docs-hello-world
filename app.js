@@ -131,7 +131,7 @@ const APIController = (function() {
     const _getRecommendations = async(token, tracksEndPoint, emotionData) => {
         const limit = 1;
         console.log('tracks end point: ' + tracksEndPoint);
-        const arrayTracks = await getTrack(token, tracksEndPoint);
+        const arrayTracks = await _getTrack(token, tracksEndPoint);
         console.log('array tracks: ' + arrayTracks);
         let seedTracks = "";
         arrayTracks.forEach(el => seedTracks = seedTracks + el.id + "%2C");
