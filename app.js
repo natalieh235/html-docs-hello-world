@@ -52,6 +52,9 @@ var myform = document.getElementById('myform');
             console.log('initial valence:' + valence);
             $('#hidden_emotion').html(valence);
             $('#emotion').html(resultString);
+
+            var testValence = document.getElementById('hidden_emotion').innerHTML;
+            console.log(testValence);
         },
 
         error: function (err) {
@@ -146,12 +149,12 @@ const APIController = (function() {
         console.log("tracksArray[0]: " + tracksArray[0]);
         
         let seedTracks = "";
-        for (let i = 0; i < tracksArray.length; i++){
+        /*for (let i = 0; i < tracksArray.length; i++){
             seedTracks += tracksArray[i].id + "2C";
-        }
+        }*/
         
-        seedTracks = seedTracks.substring(0, seedTracks.length-3);
-        console.log(seedTracks); 
+        //seedTracks = seedTracks.substring(0, seedTracks.length-3);
+        console.log(seedTracks[0].id); 
 
     
         const valence = document.getElementById('hidden_emotion').innerHTML;
