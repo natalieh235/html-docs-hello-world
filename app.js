@@ -324,7 +324,7 @@ const APPController = (function(UICtrl, APICtrl) {
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndpoint);
-        console.log('tracks[0]' + tracks[0]);
+        console.log(tracks);
         //const track = await APICtrl.getTrack(token, tracks[0].href);
         // create a track list item
         // const recommendedTrack = await APICtrl.getRecommendations(token, tracksEndpoint);
