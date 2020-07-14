@@ -265,7 +265,7 @@ const APPController = (function(UICtrl, APICtrl) {
     // get input field object ref
     const DOMInputs = UICtrl.inputField();
 
-    const loadToken = async() => {
+    /*const loadToken = async() => {
         console.log('im here');
         //get the token
         const token = await APICtrl.getToken(); 
@@ -273,7 +273,7 @@ const APPController = (function(UICtrl, APICtrl) {
         //store the token onto the page
         UICtrl.storeToken(token);
         console.log(UICtrl.getStoredToken().token);
-    }
+    } */
 
      
 
@@ -281,7 +281,13 @@ const APPController = (function(UICtrl, APICtrl) {
     DOMInputs.submit.addEventListener('click', async (e) => {
         // prevent page reset
         e.preventDefault();
-        const token = UICtrl.getStoredToken().token;  
+        console.log('im here');
+        //get the token
+        const token = await APICtrl.getToken(); 
+        console.log('firstTokenLog:' + token);          
+        //store the token onto the page
+        UICtrl.storeToken(token);
+        console.log(UICtrl.getStoredToken().token);
            
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
