@@ -40,7 +40,11 @@ var myform = document.getElementById('myform');
             <p>sadness: ${emotion.sadness}</p>
             <p>surprise: ${emotion.surprise}</p>
             `;
-
+            
+            var valence = emotion.happiness + emotion.surprise - emotion.anger - emotion.contempt -
+            emotion.disgust - emotion.fear - emotion.sadness;
+            console.log('initial valence:' + valence);
+            $('#hidden_emotion').html(valence);
             $('#emotion').html(resultString);
         },
 
@@ -142,10 +146,12 @@ const APIController = (function() {
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
         console.log(seedTracks); */
+
+        var happiness = document.querySelector()
         
 
-        const valence = emotionData.happiness + emotionData.surprise - 
-        emotionData.sadness - emotionData.disgust - emotionData.anger - emotionData.contempt - emotionData.fear;
+        const valence = document.querySelector('#hidden_emotion').innerHTML;
+        console.log('inner valence: ' + valence);
         const minPopularity = "50";
         
         
