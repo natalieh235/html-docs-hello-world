@@ -19,7 +19,7 @@ var myform = document.getElementById('myform');
     processData: false,
         success: function (resp) {
             console.log(resp);
-            $("#responseTextArea").val(resp);
+            $("#responseTextArea").val(JSON.stringify(resp, null, 2));
         },
         error: function (err) {
             console.log('---ERROR: '+err);
