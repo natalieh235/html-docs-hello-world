@@ -278,6 +278,13 @@ const APPController = (function(UICtrl, APICtrl) {
     // get input field object ref
     const DOMInputs = UICtrl.inputField();
 
+    const loadToken = async() => {
+        //get the token
+        const token = await APICtrl.getToken();           
+        //store the token onto the page
+        UICtrl.storeToken(token);
+    }
+
     // get genres on page load
     /*const loadGenres = async () => {
         //get the token
@@ -311,9 +318,7 @@ const APPController = (function(UICtrl, APICtrl) {
     DOMInputs.submit.addEventListener('click', async (e) => {
         // prevent page reset
         e.preventDefault();
-        const token = await APICtrl.getToken();           
-        //store the token onto the page
-        UICtrl.storeToken(token);      
+        const token = UICtrl.getStoredToken().token;      
     
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
