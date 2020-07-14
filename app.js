@@ -160,7 +160,7 @@ const APIController = (function() {
         
         
         const result = await fetch
-        (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seedtracks}
+        (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seedTracks}
         &min_popularity=${minPopularity}&target_valence=${valence}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
