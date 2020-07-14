@@ -281,7 +281,7 @@ const APPController = (function(UICtrl, APICtrl) {
         const token = UICtrl.getStoredToken().token;  
         console.log(token);    
         // set the track endpoint
-        //const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
+        const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndpoint);
         console.log(tracks);
