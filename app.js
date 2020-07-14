@@ -50,9 +50,9 @@ var myform = document.getElementById('myform');
                 valence = 1;
             }
             console.log('initial valence:' + valence);
-            $('#hidden_emotion').html(valence);
             $('#emotion').html(resultString);
 
+            document.getElementById('hidden_emotion').html(valence);
             var testValence = document.getElementById('hidden_emotion').innerHTML;
             console.log('testvalence: ' + testValence);
         },
@@ -150,7 +150,7 @@ const APIController = (function() {
         
         let seedTracks = "";
         for (let i = 0; i < tracksArray.length; i++){
-            seedTracks += tracksArray[i].track.id + "2C";
+            seedTracks = seedTracks + tracksArray[i].track.id + "2C";
         }
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
