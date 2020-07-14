@@ -19,7 +19,8 @@ var myform = document.getElementById('myform');
     processData: false,
         success: function (resp) {
             console.log(resp);
-            $("#responseTextArea").val(resp);
+            var data = JSON.parse(resp);
+            $("#responseTextArea").val(data.emotion);
         },
         error: function (err) {
             console.log('---ERROR: '+err);
