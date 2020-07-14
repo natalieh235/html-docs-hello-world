@@ -52,7 +52,7 @@ var myform = document.getElementById('myform');
             console.log('initial valence:' + valence);
             $('#emotion').html(resultString);
 
-            document.getElementById('hidden_emotion').html(valence);
+            document.getElementById('hidden_emotion').innerHTML = valence;
             var testValence = document.getElementById('hidden_emotion').innerHTML;
             console.log('testvalence: ' + testValence);
         },
