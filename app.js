@@ -71,7 +71,8 @@ function clearForm(){
 //spotify api call
 const APIController = (function() {
     
-    
+    const clientId = 'f31f7be4fafb4177848cea89d05606d1';
+    const clientSecret = 'c55105a02af9405fb2bb5e77ec671b43';
 
     // private methods
     const _getToken = async () => {
