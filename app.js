@@ -132,22 +132,23 @@ const APIController = (function() {
     const _getRecommendations = async(token, tracksEndPoint, emotionData) => {
         const limit = 1;
         
-        
+        console.log("tracksEndPoint: " + tracksEndPoint);
+        console.log("tracksEndPoint[0]: " + tracksEndPoint[0]);
         
         let seedTracks = "";
-        for (let i = 0; i < tracksEndPoint.length; i++){
+        /*for (let i = 0; i < tracksEndPoint.length; i++){
             seedTracks += tracksEndPoint[i].id + "2C";
         }
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
-        console.log(seedTracks);
+        console.log(seedTracks); */
         
 
         const valence = emotionData.happiness + emotionData.surprise - 
         emotionData.sadness - emotionData.disgust - emotionData.anger - emotionData.contempt - emotionData.fear;
         const minPopularity = "50";
         
-        console.log('seed tracks: ' + seed_tracks);
+        
         const result = await fetch
         (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seed_tracks}
         &min_popularity=${minPopularity}&target_valence=${valence}`, {
