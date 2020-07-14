@@ -107,6 +107,7 @@ const APIController = (function() {
     const _getTracks = async (token, tracksEndPoint) => {
 
         const limit = 10;
+        console.log(`${tracksEndPoint}?limit=${limit}`);
 
         const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
             method: 'GET',
@@ -184,12 +185,10 @@ const UIController = (function() {
 
     //object to hold references to html selectors
     const DOMElements = {
-        //selectGenre: '#select_genre',
-        //selectPlaylist: '#select_playlist',
         buttonSubmit: '#songbutton',
         divSongDetail: '#song-detail',
         hfToken: '#hidden_token',
-        //divSonglist: '.song-list'
+        
     }
 
     //public methods
@@ -198,9 +197,6 @@ const UIController = (function() {
         //method to get input fields
         inputField() {
             return {
-                genre: document.querySelector(DOMElements.selectGenre),
-                playlist: document.querySelector(DOMElements.selectPlaylist),
-                tracks: document.querySelector(DOMElements.divSonglist),
                 submit: document.querySelector(DOMElements.buttonSubmit),
                 songDetail: document.querySelector(DOMElements.divSongDetail)
             }
@@ -250,15 +246,6 @@ const UIController = (function() {
             this.inputField().songDetail.innerHTML = '';
         },
 
-        /*resetTracks() {
-            this.inputField().tracks.innerHTML = '';
-            this.resetTrackDetail();
-        },
-
-        resetPlaylist() {
-            this.inputField().playlist.innerHTML = '';
-            this.resetTracks();
-        }, */
         
         storeToken(value) {
             document.querySelector(DOMElements.hfToken).value = value;
@@ -285,51 +272,19 @@ const APPController = (function(UICtrl, APICtrl) {
         UICtrl.storeToken(token);
     }
 
-    // get genres on page load
-    /*const loadGenres = async () => {
-        //get the token
-        const token = await APICtrl.getToken();           
-        //store the token onto the page
-        UICtrl.storeToken(token);
-        //get the genres
-        const genres = await APICtrl.getGenres(token);
-        //populate our genres select element
-        genres.forEach(element => UICtrl.createGenre(element.name, element.id));
-    }
-
-    // create genre change event listener
-    DOMInputs.genre.addEventListener('change', async () => {
-        //reset the playlist
-        UICtrl.resetPlaylist();
-        //get the token that's stored on the page
-        const token = UICtrl.getStoredToken().token;        
-        // get the genre select field
-        const genreSelect = UICtrl.inputField().genre;       
-        // get the genre id associated with the selected genre
-        const genreId = genreSelect.options[genreSelect.selectedIndex].value;             
-        // ge the playlist based on a genre
-        const playlist = await APICtrl.getPlaylistByGenre(token, genreId);       
-        // create a playlist list item for every playlist returned
-        playlist.forEach(p => UICtrl.createPlaylist(p.name, p.tracks.href));
-    }); */
      
 
     // create submit button click event listener
     DOMInputs.submit.addEventListener('click', async (e) => {
         // prevent page reset
         e.preventDefault();
-        const token = UICtrl.getStoredToken().token;      
+        const token = UICtrl.getStoredToken().token;  
+        console.log(token);    
         // set the track endpoint
-        const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
+        //const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndpoint);
         console.log(tracks);
-        //const track = await APICtrl.getTrack(token, tracks[0].href);
-        // create a track list item
-        // const recommendedTrack = await APICtrl.getRecommendations(token, tracksEndpoint);
-        // UICtrl.createTrackDetail(recommendedTrack.album.images[2].url, 
-        //     recommendedTrack.name, recommendedTrack.artists[0].name);
-        //tracks.forEach(el => UICtrl.createTrack(el.track.id, el.track.name, el.track.href))
         
     });
 
