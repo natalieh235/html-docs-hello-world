@@ -140,21 +140,21 @@ const APIController = (function() {
         console.log("tracksArray[0]: " + tracksArray[0]);
         
         let seedTracks = "";
-        /*for (let i = 0; i < tracksEndPoint.length; i++){
+        for (let i = 0; i < tracksEndPoint.length; i++){
             seedTracks += tracksEndPoint[i].id + "2C";
         }
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
-        console.log(seedTracks); */
+        console.log(seedTracks); 
 
     
-        const valence = document.querySelector('#hidden_emotion').innerHTML;
+        const valence = document.querySelector('#hidden_emotion').html();
         console.log('inner valence: ' + valence);
         const minPopularity = "50";
         
         
         const result = await fetch
-        (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seed_tracks}
+        (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seedtracks}
         &min_popularity=${minPopularity}&target_valence=${valence}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
