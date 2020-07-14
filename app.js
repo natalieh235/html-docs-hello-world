@@ -108,7 +108,7 @@ const APIController = (function() {
 
         const limit = 10;
         console.log(`${tracksEndPoint}?limit=${limit}`);
-
+        console.log(token); 
         const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
@@ -279,7 +279,7 @@ const APPController = (function(UICtrl, APICtrl) {
         // prevent page reset
         e.preventDefault();
         const token = UICtrl.getStoredToken().token;  
-        console.log(token);    
+           
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
