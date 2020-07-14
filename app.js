@@ -43,6 +43,12 @@ var myform = document.getElementById('myform');
             
             var valence = emotion.happiness + emotion.surprise - emotion.anger - emotion.contempt -
             emotion.disgust - emotion.fear - emotion.sadness;
+            if (valence < 0){
+                valence = 0;
+            }
+            else if (valence > 1){
+                valence = 1;
+            }
             console.log('initial valence:' + valence);
             $('#hidden_emotion').html(valence);
             $('#emotion').html(resultString);
