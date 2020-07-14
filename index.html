@@ -27,16 +27,29 @@
 
     <div class="container">
         
-      <form id="myform" onsubmit="event.preventDefault(); handle(event);"  enctype="multipart/form-data">
-        <input type="file" name="file" id="file" />
-        <input type="submit" value="Submit" />
-     </form>
+      <form id="myform" onsubmit="event.preventDefault(); handle(event);" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="file"> Upload a Face Image File:</label>
+          <input type="file" name="file" id="file" class="form-control-file" />
 
-      <div id="jsonOutput" style="width:600px; display:table-cell;">
+        </div>
+
+        <button type="submit" class="btn btn-secondary btn-sm">Submit</button>
+        <button class="btn btn-secondary btn-sm" id="clear" onclick="event.preventDefault();clearForm()">Clear</button>
+
+      </form>
+
+
+
+<hr/>
+
+      <div id="emotion"></div>
+
+      <!-- <div id="jsonOutput" style="width:600px; display:table-cell;">
       Response:<br><br>
       <textarea id="responseTextArea" class="UIInput"
           style="width:580px; height:400px;"></textarea>
-      </div>
+      </div> -->
     </div>
 
     <!-- Bootstrap core JavaScript
