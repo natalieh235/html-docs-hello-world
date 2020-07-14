@@ -129,11 +129,11 @@ const APIController = (function() {
         return data;
     }
 
-    const _getRecommendations = async(token, tracksEndPoint, emotionData) => {
+    const _getRecommendations = async(token, tracksArray, emotionData) => {
         const limit = 1;
         
-        console.log("tracksEndPoint: " + tracksEndPoint);
-        console.log("tracksEndPoint[0]: " + tracksEndPoint[0]);
+        console.log("tracksArray: " + tracksArray);
+        console.log("tracksArray[0]: " + tracksArray[0]);
         
         let seedTracks = "";
         /*for (let i = 0; i < tracksEndPoint.length; i++){
@@ -297,7 +297,7 @@ const APPController = (function(UICtrl, APICtrl) {
         // get the list of tracks
         const tracks = await APICtrl.getTracks(token, tracksEndpoint);
         //console.log(tracks);
-        const recommendedTrack = await APICtrl.getRecommendations(token, tracksEndpoint);
+        const recommendedTrack = await APICtrl.getRecommendations(token, tracks);
         UICtrl.createTrackDetail(recommendedTrack.album.images[2].url, 
             recommendedTrack.name, recommendedTrack.artists[0].name);
         
