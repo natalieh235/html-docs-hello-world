@@ -71,8 +71,7 @@ function clearForm(){
 //spotify api call
 const APIController = (function() {
     
-    const clientId = 'f31f7be4fafb4177848cea89d05606d1';
-    const clientSecret = 'c55105a02af9405fb2bb5e77ec671b43';
+    
 
     // private methods
     const _getToken = async () => {
@@ -154,7 +153,7 @@ const APIController = (function() {
         console.log(seedTracks); 
 
     
-        const valence = document.querySelector('#hidden_emotion').html();
+        const valence = document.getElementById('hidden_emotion').innerHTML;
         console.log('inner valence: ' + valence);
         const minPopularity = "50";
         
