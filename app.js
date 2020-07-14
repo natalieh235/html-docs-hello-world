@@ -54,7 +54,7 @@ var myform = document.getElementById('myform');
             $('#emotion').html(resultString);
 
             var testValence = document.getElementById('hidden_emotion').innerHTML;
-            console.log(testValence);
+            console.log('testvalence: ' + testValence);
         },
 
         error: function (err) {
@@ -149,16 +149,14 @@ const APIController = (function() {
         console.log("tracksArray[0]: " + tracksArray[0]);
         
         let seedTracks = "";
-        /*for (let i = 0; i < tracksArray.length; i++){
-            seedTracks += tracksArray[i].id + "2C";
-        }*/
+        for (let i = 0; i < tracksArray.length; i++){
+            seedTracks += tracksArray[i].track.id + "2C";
+        }
         
-        //seedTracks = seedTracks.substring(0, seedTracks.length-3);
-        console.log(seedTracks[0].id); 
-
-    
+        seedTracks = seedTracks.substring(0, seedTracks.length-3);
+        
         const valence = document.getElementById('hidden_emotion').innerHTML;
-        console.log('inner valence: ' + valence);
+        //console.log('inner valence: ' + valence);
         const minPopularity = "50";
         
         
