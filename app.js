@@ -319,7 +319,6 @@ const APPController = (function(UICtrl, APICtrl) {
         // prevent page reset
         e.preventDefault();
         const token = UICtrl.getStoredToken().token;      
-    
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
