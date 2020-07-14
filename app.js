@@ -267,9 +267,11 @@ const APPController = (function(UICtrl, APICtrl) {
 
     const loadToken = async() => {
         //get the token
-        const token = await APICtrl.getToken();           
+        const token = await APICtrl.getToken(); 
+        console.log('firstTokenLog:' + token);          
         //store the token onto the page
         UICtrl.storeToken(token);
+        console.log(UICtrl.getStoredToken);
     }
 
      
