@@ -18,7 +18,7 @@ var myform = document.getElementById('myform');
     contentType: false,
     processData: false,
         success: function (resp) {
-            console.log('---RESP: '+resp);
+            $("#responseTextArea").val(resp);
         },
         error: function (err) {
             console.log('---ERROR: '+err);
