@@ -266,12 +266,13 @@ const APPController = (function(UICtrl, APICtrl) {
     const DOMInputs = UICtrl.inputField();
 
     const loadToken = async() => {
+        console.log('im here');
         //get the token
         const token = await APICtrl.getToken(); 
         console.log('firstTokenLog:' + token);          
         //store the token onto the page
         UICtrl.storeToken(token);
-        console.log(UICtrl.getStoredToken);
+        console.log(UICtrl.getStoredToken().token);
     }
 
      
@@ -285,8 +286,8 @@ const APPController = (function(UICtrl, APICtrl) {
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
-        const tracks = await APICtrl.getTracks(token, tracksEndpoint);
-        console.log(tracks);
+        //const tracks = await APICtrl.getTracks(token, tracksEndpoint);
+        //console.log(tracks);
         
     });
 
