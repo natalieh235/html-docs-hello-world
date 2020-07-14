@@ -132,8 +132,11 @@ const APIController = (function() {
         const limit = 1;
         console.log('tracks end point: ' + tracksEndPoint);
         const arrayTracks = await getTrack(token, tracksEndPoint);
-        console.log(arrayTracks);
-        const seed_tracks;
+        console.log('array tracks: ' + arrayTracks);
+        let seedTracks = "";
+        arrayTracks.forEach(el => seedTracks = seedTracks + el.id + "%2C");
+        seedTracks = seedTracks.substring(0, seedTracks.length-3);
+        
 
         const valence = emotionData.happiness + emotionData.surprise - 
         emotionData.sadness - emotionData.disgust - emotionData.anger - emotionData.contempt - emotionData.fear;
