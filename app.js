@@ -281,19 +281,17 @@ const APPController = (function(UICtrl, APICtrl) {
     DOMInputs.submit.addEventListener('click', async (e) => {
         // prevent page reset
         e.preventDefault();
-        console.log('im here');
+        
         //get the token
-        const token = await APICtrl.getToken(); 
-        console.log('firstTokenLog:' + token);          
+        const token = await APICtrl.getToken();         
         //store the token onto the page
         UICtrl.storeToken(token);
-        console.log(UICtrl.getStoredToken().token);
            
         // set the track endpoint
         const tracksEndpoint = "https://api.spotify.com/v1/playlists/37i9dQZF1DXcBWIGoYBM5M/tracks"
         // get the list of tracks
-        //const tracks = await APICtrl.getTracks(token, tracksEndpoint);
-        //console.log(tracks);
+        const tracks = await APICtrl.getTracks(token, tracksEndpoint);
+        console.log(tracks);
         
     });
 
