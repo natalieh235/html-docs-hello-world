@@ -147,9 +147,7 @@ const APIController = (function() {
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
         console.log(seedTracks); */
 
-        var happiness = document.querySelector()
-        
-
+    
         const valence = document.querySelector('#hidden_emotion').innerHTML;
         console.log('inner valence: ' + valence);
         const minPopularity = "50";
