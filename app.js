@@ -158,15 +158,16 @@ const APIController = (function() {
             seedTracks = seedTracks + tracksArray[i].track.id + "%2C";
         }
         
+        let market = "US";
         seedTracks = seedTracks.substring(0, seedTracks.length-3); 
         
         const valence = document.querySelector('#hiddenemotion').value;
         //console.log('inner valence: ' + valence);
-        const minPopularity = "50";
+        const minPopularity = "70";
         
         
         const result = await fetch
-        (`https://api.spotify.com/v1/recommendations?limit=${limit}&seed_tracks=${seedTracks}&min_popularity=${minPopularity}&target_valence=${valence}`, {
+        (`https://api.spotify.com/v1/recommendations?market=${market}&limit=${limit}&seed_tracks=${seedTracks}&min_popularity=${minPopularity}&target_valence=${valence}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
         });
