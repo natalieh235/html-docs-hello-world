@@ -154,7 +154,7 @@ const APIController = (function() {
         
         let seedTracks = "";
         for (let i = 0; i < tracksArray.length; i++){
-            seedTracks = seedTracks + tracksArray[i].track.id + "2C";
+            seedTracks = seedTracks + tracksArray[i].track.id;
         }
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
