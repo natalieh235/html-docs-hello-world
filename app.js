@@ -123,7 +123,7 @@ const APIController = (function() {
 
     const _getTracks = async (token, tracksEndPoint) => {
 
-        const limit = 10;
+        const limit = 5;
         console.log(`${tracksEndPoint}?limit=${limit}`);
         console.log(token); 
         const result = await fetch(`${tracksEndPoint}?limit=${limit}`, {
