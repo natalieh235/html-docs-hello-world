@@ -52,9 +52,10 @@ var myform = document.getElementById('myform');
             console.log('initial valence:' + valence);
             $('#emotion').html(resultString);
 
-            document.getElementById('hidden_emotion').innerHTML = valence;
-            var testValence = document.getElementById('hidden_emotion').innerHTML;
-            console.log('testvalence: ' + testValence);
+            var hiddenEmotion = document.querySelector('#hiddenemotion');
+            hiddenEmotion.value = valence;
+            
+            console.log('testvalence: ' + hiddenEmotion.value);
         },
 
         error: function (err) {
