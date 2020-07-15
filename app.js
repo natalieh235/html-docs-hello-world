@@ -78,8 +78,7 @@ function clearForm(){
 //spotify api call
 const APIController = (function() {
     
-    const clientId = 'f31f7be4fafb4177848cea89d05606d1';
-    const clientSecret = 'c55105a02af9405fb2bb5e77ec671b43';
+    
 
     // private methods
     const _getToken = async () => {
@@ -161,13 +160,25 @@ const APIController = (function() {
         let market = "US";
         seedTracks = seedTracks.substring(0, seedTracks.length-3); 
         
-        const valence = document.querySelector('#hiddenemotion').value;
+        const emotion = document.querySelector('#hiddenemotion').value;
+        const minValence = 0;
+        const maxValence = 1;
+        if (emotion < .33){
+            maxValence = .33;
+        }
+        else if (emotion > .66){
+            minValence = .66;
+        }
+        else{
+            minValence = .3;
+            maxValence = .7;
+        }
         //console.log('inner valence: ' + valence);
         const minPopularity = "70";
         
         
         const result = await fetch
-        (`https://api.spotify.com/v1/recommendations?market=${market}&limit=${limit}&seed_tracks=${seedTracks}&min_popularity=${minPopularity}&target_valence=${valence}`, {
+        (`https://api.spotify.com/v1/recommendations?market=${market}&limit=${limit}&seed_tracks=${seedTracks}&min_popularity=${minPopularity}&min_valence=${minValence}&max_valence=${maxValence}`, {
             method: 'GET',
             headers: { 'Authorization' : 'Bearer ' + token}
         });
