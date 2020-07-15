@@ -49,13 +49,16 @@ var myform = document.getElementById('myform');
             else if (valence > 1){
                 valence = 1;
             }
+            else if (valence < emotion.neutral){
+                valence = .5;
+            }
             console.log('initial valence:' + valence);
             $('#emotion').html(resultString);
 
             var hiddenEmotion = document.querySelector('#hiddenemotion');
             hiddenEmotion.value = valence;
             
-            console.log('testvalence: ' + hiddenEmotion.value);
+            //console.log('testvalence: ' + hiddenEmotion.value);
         },
 
         error: function (err) {
@@ -156,7 +159,7 @@ const APIController = (function() {
         
         seedTracks = seedTracks.substring(0, seedTracks.length-3);
         
-        const valence = document.getElementById('hidden_emotion').innerHTML;
+        const valence = document.querySelector('#hiddenemotion').value;
         //console.log('inner valence: ' + valence);
         const minPopularity = "50";
         
