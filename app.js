@@ -152,13 +152,13 @@ const APIController = (function() {
         console.log("tracksArray: " + tracksArray);
         console.log(tracksArray[0].track);
         
-        let seedTracks = tracksArray[0].track.id;
+        let seedTracks = "";
         console.log(seedTracks);
-        /*for (let i = 0; i < tracksArray.length; i++){
-            seedTracks = seedTracks + tracksArray[i].track.id;
+        for (let i = 0; i < tracksArray.length; i++){
+            seedTracks = seedTracks + tracksArray[i].track.id + ",";
         }
         
-        seedTracks = seedTracks.substring(0, seedTracks.length-3); */
+        seedTracks = seedTracks.substring(0, seedTracks.length-1); 
         
         const valence = document.querySelector('#hiddenemotion').value;
         //console.log('inner valence: ' + valence);
