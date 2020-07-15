@@ -43,14 +43,14 @@ var myform = document.getElementById('myform');
             
             var valence = emotion.happiness + emotion.surprise - emotion.anger - emotion.contempt -
             emotion.disgust - emotion.fear - emotion.sadness;
-            if (valence < 0){
-                valence = 0;
+            if (valence < emotion.neutral){
+                valence = 0.5;
             }
             else if (valence > 1){
                 valence = 1;
             }
-            else if (valence < emotion.neutral){
-                valence = .5;
+            else if (valence < 0){
+                valence = 0;
             }
             console.log('initial valence:' + valence);
             $('#emotion').html(resultString);
