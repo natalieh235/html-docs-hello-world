@@ -150,7 +150,7 @@ const APIController = (function() {
         const limit = 1;
         
         console.log("tracksArray: " + tracksArray);
-        console.log("tracksArray[0]: " + tracksArray[0].track);
+        console.log(tracksArray[0].track);
         
         let seedTracks = "";
         for (let i = 0; i < tracksArray.length; i++){
