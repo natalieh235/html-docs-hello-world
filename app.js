@@ -52,13 +52,12 @@ var myform = document.getElementById('myform');
             else if (valence < 0){
                 valence = 0;
             }
-            console.log('initial valence:' + valence);
+            
             $('#emotion').html(resultString);
 
             var hiddenEmotion = document.querySelector('#hiddenemotion');
             hiddenEmotion.value = valence;
             
-            //console.log('testvalence: ' + hiddenEmotion.value);
         },
 
         error: function (err) {
@@ -162,8 +161,8 @@ const APIController = (function() {
         seedTracks = seedTracks.substring(0, seedTracks.length-3); 
         
         const emotion = document.querySelector('#hiddenemotion').value;
-        const minValence = 0;
-        const maxValence = 1;
+        let minValence = 0;
+        let maxValence = 1;
         if (emotion < .33){
             maxValence = .33;
         }
